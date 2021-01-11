@@ -1,4 +1,4 @@
-this.popup = open("", "", "resizable,scrollbars=yes,width=550,height=520");
+var inspectpopup = open("", "", "resizable,scrollbars=yes,width=550,height=520");
 var html =`
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-beautify.js" type="text/javascript" charset="utf-8"></script>
 <style type="text/css">
@@ -72,5 +72,5 @@ var html =`
     setInterval(update,50)
 </script>
 `;
-this.popup.document.write(html);
-this.popup.document.close();
+inspectpopup.document.write(html);
+inspectpopup.document.close();

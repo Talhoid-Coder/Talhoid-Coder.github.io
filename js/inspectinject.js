@@ -1,6 +1,6 @@
 var inspectpopup = open("", "", "resizable,scrollbars=yes,width=550,height=520");
 var html =`
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-beautify.js" type="text/javascript" charset="utf-8"></script>
+<scr`+`ipt src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-beautify.js" type="text/javascript" charset="utf-8"></scr`+`ipt>
 <style type="text/css">
     .editor{
         position:absolute;
@@ -11,9 +11,9 @@ var html =`
     }
 </style>
 <div class="editor" id="editor"></div>
-<script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.1/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8">
-</script>
-<script>
+<scr`+`ipt src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.1/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8">
+</scr`+`ipt>
+<scr`+`ipt>
     
     var editor=ace.edit("editor");
     var beautify = ace.require("ace/ext/beautify"); // get reference to extension
@@ -70,7 +70,7 @@ var html =`
         return doctypeString;
     } 
     setInterval(update,50)
-</script>
+</scr`+`ipt>
 `;
 inspectpopup.document.write(html);
 inspectpopup.document.close();

@@ -13,8 +13,14 @@ body {
 	font-weight: 900;
 	font-family: 'Montserrat';	
 }
-
-
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 96%;               
+  background-color: black;
+  height: 1px;
+}
 .postcount {	
 display: flex;
   justify-content: center;
@@ -24,7 +30,9 @@ display: flex;
 </style>
 <div class="postcount">
 <h1 class="pc" id="pc"></h1>
-</h1><h1 id="count" class="odometer" style="background: black;color: white;padding: 1px 8px;border-radius: 12px;"></span>
+</h1>
+<hr>
+<h1 id="count" class="odometer" style="background: black;color: white;padding: 1px 8px;border-radius: 12px;"></span>
 </div>
 <script>
 urlParam = function(name){

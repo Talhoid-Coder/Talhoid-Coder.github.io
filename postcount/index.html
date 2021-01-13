@@ -23,8 +23,9 @@ display: flex;
 }
 </style>
 <div class="postcount">
-<span class="pc" id="pc" style="display: block;
-"></span><span id="count" class="odometer" style="background: black;color: white;padding: 1px 8px;border-radius: 12px;display: block;"></span>
+<h1 class="pc" id="pc"></h1>
+<hr>
+</h1><h1 id="count" class="odometer" style="background: black;color: white;padding: 1px 8px;border-radius: 12px;"></span>
 </div>
 <script>
 urlParam = function(name){
@@ -40,8 +41,8 @@ function update() {
 	fetch(url).then(response => response.json()).then(data => {
 		var obj = JSON.parse(JSON.stringify(data));
 		document.getElementById("count").innerHTML = obj["counts"]["total"]["count"];
+		document.getElementById("pc").innerHTML = 'Post count of: ' + user;
 	});
-	document.getElementById("pc").innerHTML = 'Post count of: ' + user;
 }
 update();
 setInterval(update,5000)

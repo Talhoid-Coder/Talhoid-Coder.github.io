@@ -10,7 +10,6 @@ urlParam = function(name){
 }
 try {
 	user = urlParam('user')
-	badge = urlParam('badge') != 0
 	var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
 } catch(e) {
 	alert(e)	
@@ -22,12 +21,7 @@ try {
 	} catch(e) {
 		document.getElementById("count").innerHTML = e;
 	}
-		if (badge) {
-			var json = '{"schemaVersion": 1,"label": "POSTS:","message": ' + obj["counts"]["total"]["count"] + ',"color": "success"}';		
-			document.getElementById("count").innerHTML = json;
-		} else {
-			document.getElementById("count").innerHTML = obj["counts"]["total"]["count"];
-		}
+		document.getElementById("count").innerHTML = obj["counts"]["total"]["count"];
 	});
 } catch(e) {
    document.getElementById("count").innerHTML = e;

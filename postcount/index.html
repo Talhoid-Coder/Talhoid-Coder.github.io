@@ -3,8 +3,8 @@
 <body>
 <p id="demo"></p>
 <script>
+try {
 fetch('https://scratchdb.lefty.one/v2/forum/user/info/' + window.location.hash.split("#")[0]).then(response => response.json()).then(data => {
-	alert(data);
         try {
 	    var obj = JSON.parse(JSON.stringify(data));
 	} catch(e) {
@@ -12,6 +12,8 @@ fetch('https://scratchdb.lefty.one/v2/forum/user/info/' + window.location.hash.s
 	}
 	document.getElementById("demo").innerHTML = obj["counts"]["total"]["count"];
 });
+} catch(e) {
+   document.getElementById("demo").innerHTML = e;
 </script>
 </body>
 </html>

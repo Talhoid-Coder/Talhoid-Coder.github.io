@@ -2,7 +2,11 @@
 <html>
 <body>
 <script>
-fetch('https://talhoid-coder.github.io/postcount/index.html?user=Talhoid').then(response => response).then(data => {document.getElementById("demo").innerHTML = data})
+try {
+  fetch('https://talhoid-coder.github.io/postcount/index.html?user=Talhoid').then(response => response).then(data => {document.getElementById("demo").innerHTML = data})
+} catch(e) {
+  alert(e)
+}
 </script>
 <h1>Post Count</h1>
 <p id="count"></p>

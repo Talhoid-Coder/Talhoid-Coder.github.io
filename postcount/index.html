@@ -9,7 +9,7 @@
 <body>
 <style>
 .postcount {	
-	display: flex;
+display: flex;
   justify-content: center;
   align-items: center;
   height: 200px;
@@ -21,6 +21,7 @@ h1 {
 }
 </style>
 <div class="postcount">
+<h1 class="pc" id="pc"></h1>
 <h1 id="count" class="odometer"></h1>
 </div>
 <script>
@@ -28,30 +29,20 @@ urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     return results[1] || 0;
 }
-try {
-	user = urlParam('user')
-	document.getElementById("count").innerHTML = 'Hang on... fetching post count of ' + user;
-	var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
-	document.getElementById("title").innerHTML = 'Post count | ' + user;
-} catch(e) {
-	alert(e)	
-}
+
+user = urlParam('user')
+document.getElementById("pc").innerHTML = 'Hang on... fetching post count of ' + user;
+var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
+document.getElementById("title").innerHTML = 'Post count | ' + user;
 function update() {
-	try {
-		fetch(url).then(response => response.json()).then(data => {
-		try {
-			var obj = JSON.parse(JSON.stringify(data));
-		} catch(e) {
-			document.getElementById("count").innerHTML = e;
-		}
-			document.getElementById("count").innerHTML = obj["counts"]["total"]["count"];
-		});
-	} catch(e) {
-		 document.getElementById("count").innerHTML = e;
-	}
+	fetch(url).then(response => response.json()).then(data => {
+		var obj = JSON.parse(JSON.stringify(data));
+		document.getElementById("count").innerHTML = obj["counts"]["total"]["count"];
+	});
+	document.getElementById("pc").innerHTML = 'Post count of: ' + user;
 }
 update();
-setInterval(update,25000)
+setInterval(update,5000)
 </script>
 </body>
 </html>

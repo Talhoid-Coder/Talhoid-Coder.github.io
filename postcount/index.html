@@ -19,6 +19,13 @@ h1 {
 	font-weight: 900;
   	font-family: 'Montserrat';
 }
+#count {
+  display: block;
+}
+#count::before {
+  content: attr(data-text);
+  padding: 1px 8px;
+}
 </style>
 <div class="postcount">
 <h1 class="pc" id="pc"></h1><br>

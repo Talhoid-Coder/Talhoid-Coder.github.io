@@ -6,11 +6,11 @@
 
 urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    return results[1] || null;
+    return results[1] || 0;
 }
 try {
 	user = urlParam('user')
-	badge = urlParam('badge') != null
+	badge = urlParam('badge') != 0
 	var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
 } catch(e) {
 	alert(e)	

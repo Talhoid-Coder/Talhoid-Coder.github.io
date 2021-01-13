@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
 <body>
-<p id="count"></p>
-<script>
+<style>
+.postcount {	
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
 
+h1 {
+	font-size: 92px
+	font-weight: 900;
+}
+</style>
+<div class="postcount">
+<h1 id="count">Hang on... fetching post count of </h1>
+</div>
+<script>
 urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     return results[1] || 0;
 }
 try {
 	user = urlParam('user')
+	document.getElementById("count").innerHTML += user;
 	var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
 } catch(e) {
 	alert(e)	
@@ -29,4 +44,3 @@ try {
 </script>
 </body>
 </html>
-

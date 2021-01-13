@@ -8,20 +8,22 @@
 <html>
 <body>
 <style>
+body {
+	font-size: 92px
+	font-weight: 900;
+	font-family: 'Montserrat';	
+}
+
+
 .postcount {	
 display: flex;
   justify-content: center;
   align-items: center;
   height: 200px;
 }
-span {
-	font-size: 92px
-	font-weight: 900;
-	font-family: 'Montserrat';
-}
 </style>
 <div class="postcount">
-<span class="pc" id="pc"></span><span id="count" class="odometer" style="background: black;color: white;padding: 1px 8px;border-radius: 12px;display: table;"></span>
+<h1 class="pc" id="pc"><span id="count" class="odometer" style="background: black;color: white;padding: 1px 8px;border-radius: 12px;display: table;"></span></h1>
 </div>
 <script>
 urlParam = function(name){

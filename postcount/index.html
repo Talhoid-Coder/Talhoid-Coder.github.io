@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <body>
-<p id="demo"></p>
+<p id="count"></p>
 <script>
+
+urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || null;
+}
 try {
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	var user = urlParams.get('user')
+	user = urlParam('user')
+	badge = urlParam('badge') != null
 	var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
-	alert(url)
 } catch(e) {
 	alert(e)	
 }
@@ -17,13 +20,19 @@ try {
 	try {
 		var obj = JSON.parse(JSON.stringify(data));
 	} catch(e) {
-		document.getElementById("demo").innerHTML = e;
+		document.getElementById("count").innerHTML = e;
 	}
-		document.getElementById("demo").innerHTML = obj["counts"]["total"]["count"];
+		if (badge) {
+			var json = '{"schemaVersion": 1,"label": "POSTS:","message": ' + obj["counts"]["total"]["count"] + ',"color": "success"}';		
+			document.getElementById("count").innerHTML = json;
+		} else {
+			document.getElementById("count").innerHTML = obj["counts"]["total"]["count"];
+		}
 	});
 } catch(e) {
-   document.getElementById("demo").innerHTML = e;
+   document.getElementById("count").innerHTML = e;
 }
 </script>
 </body>
 </html>
+

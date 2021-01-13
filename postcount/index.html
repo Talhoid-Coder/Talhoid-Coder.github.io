@@ -18,20 +18,12 @@ h1 {
 	font-size: 92px
 	font-weight: 900;
 	font-family: 'Montserrat';
-}
-br { 
-	content: ' ';
-	display: inline-block;
-	width: 1em;
-}
-br:after {
-	content: ' ';
-	display: inline-block;
-	width: 1em;
+	content: '\A';
+	white-space: pre;
 }
 </style>
 <div class="postcount">
-<h1 class="pc" id="pc"></h1><br /><h1 id="count" class="odometer"></h1>
+<h1 class="pc" id="pc"></h1><h1 id="count" class="odometer"></h1>
 </div>
 <script>
 urlParam = function(name){

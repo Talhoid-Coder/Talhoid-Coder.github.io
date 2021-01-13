@@ -40,7 +40,7 @@ var html =`
         }           
     }
     function update() {
-        check();
+        alert(check();)
         window.opener.document.documentElement.outerHTML = editor.getValue().split(doctypeToString(opener.document.doctype))[0]
     }
     function get_document_html(htmldocument) {

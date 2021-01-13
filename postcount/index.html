@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"></p>
+<script>
+fetch('https://scratchdb.lefty.one/v2/forum/user/info/' + window.location.hash).then(response => response.json()).then(data => {
+	alert(data);
+  try {
+	    var obj = JSON.parse(JSON.stringify(data));
+	} catch(e) {
+	   document.getElementById("demo").innerHTML = e;
+	}
+	document.getElementById("demo").innerHTML = obj["counts"]["total"]["count"];
+});
+</script>
+</body>
+</html>

@@ -3,6 +3,7 @@
 	<link rel="stylesheet" href="odometer-theme-default.css"/>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 	<script src="odometer.js"></script>
+  <title id="title">Post count</title>
 </head>
 <html>
 <body>
@@ -31,6 +32,7 @@ try {
 	user = urlParam('user')
 	document.getElementById("count").innerHTML = 'Hang on... fetching post count of ' + user;
 	var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
+	document.getElementById("title").innerHTML = 'Post count | ' + user;
 } catch(e) {
 	alert(e)	
 }

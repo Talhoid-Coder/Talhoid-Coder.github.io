@@ -3,8 +3,13 @@
 <body>
 <p id="demo"></p>
 <script>
-var user = urlParams.get('user')
-var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
+try {
+	var user = urlParams.get('user')
+	var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
+	alert(url)
+} catch(e) {
+	alert(e)	
+}
 try {
 	fetch(url).then(response => response.json()).then(data => {
 	try {

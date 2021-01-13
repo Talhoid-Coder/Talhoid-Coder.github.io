@@ -28,7 +28,7 @@ urlParam = function(name){
 }
 try {
 	user = urlParam('user')
-	document.getElementById("count").innerHTML 'Hang on... fetching post count of ' + user;
+	document.getElementById("count").innerHTML = 'Hang on... fetching post count of ' + user;
 	var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
 } catch(e) {
 	alert(e)	

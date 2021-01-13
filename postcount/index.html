@@ -19,7 +19,7 @@ h1 {
 }
 </style>
 <div class="postcount">
-<h1 id="count" class="odometer">Hang on... fetching post count of </h1>
+<h1 id="count" class="odometer"></h1>
 </div>
 <script>
 urlParam = function(name){
@@ -28,7 +28,7 @@ urlParam = function(name){
 }
 try {
 	user = urlParam('user')
-	document.getElementById("count").innerHTML += user;
+	document.getElementById("count").innerHTML 'Hang on... fetching post count of ' + user;
 	var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
 } catch(e) {
 	alert(e)	

@@ -13,17 +13,7 @@ body {
 	font-weight: 900;
 	font-family: 'Montserrat';	
 }
-hr {
-  -moz-border-bottom-colors: none;
-  -moz-border-image: none;
-  -moz-border-left-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-top-colors: none;
-  border-color: black -moz-use-text-color black;
-  border-style: solid none;
-  border-width: 1px 0;
-  margin: 18px 0;
-}
+
 .postcount {	
 display: flex;
   justify-content: center;
@@ -32,10 +22,13 @@ display: flex;
 }
 </style>
 <div class="postcount">
+<div class="message" style="border-bottom: 3px solid tomato; margin-bottom:10px;">
 <h1 class="pc" id="pc"></h1>
-</h1>
+</div>
 <hr>
+<div class="count">
 <h1 id="count" class="odometer" style="background: black;color: white;padding: 1px 8px;border-radius: 12px;"></span>
+</div>
 </div>
 <script>
 urlParam = function(name){

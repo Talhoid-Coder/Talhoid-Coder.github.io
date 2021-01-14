@@ -25,7 +25,7 @@ body {
 }
 </style>
 <div class="postcount">
-<div class="message" style="border-bottom: 3px solid tomato; margin-bottom:10px;display:inline-block;">
+<div class="message" style="border-bottom: 3px solid #ddd; margin-bottom:10px;display:inline-block;">
 <!--  style="border-bottom: 3px solid tomato; margin-bottom:10px;" -->
 <h1 class="pc" id="pc"></h1>
 </div>
@@ -48,7 +48,7 @@ function update() {
 		var obj = JSON.parse(JSON.stringify(data));
 		document.getElementById("count").innerHTML = obj["counts"]["total"]["count"];
 		document.getElementById("title").innerHTML = 'Post count | ' + user + ' | ' + obj["counts"]["total"]["count"];
-		document.getElementById("pc").innerHTML = 'Post count of: ' + user;
+		document.getElementById("pc").innerHTML = 'Post count of ' + user + ':';
 	});
 }
 update();

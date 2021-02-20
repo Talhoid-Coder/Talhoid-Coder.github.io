@@ -73,8 +73,8 @@ svg {
     background: linear-gradient(rgba(255, 255, 255, 0.1), transparent, transparent);
     overflow: hidden;
     z-index: 1;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
 }
 
 
@@ -97,8 +97,8 @@ svg {
     border-left: 1px solid rgba(255, 255, 255, 0.2);
     background: linear-gradient(rgba(255, 255, 255, 0.1), transparent, transparent);
     overflow: hidden;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
 }
 
 .card h1 {

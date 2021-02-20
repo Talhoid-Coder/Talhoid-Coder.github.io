@@ -89,7 +89,7 @@ svg {
     top: 50%;
     left: 50%;
     transform-style: preserve-3d;
-    transform: translateZ(20vh) translateX(-50%) translateY(13vh);
+    transform: translateZ(20vh) translateX(-50%) translateY(5vh);
     -webkit-box-shadow: inset 0px 0px 14px 12px rgba(0, 0, 0, 0.5);
     box-shadow: inset 0px 0px 14px 12px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s;
@@ -102,7 +102,7 @@ svg {
 }
 
 .card h1 {
-    transform: translateY(3vh);
+    transform: translateY(13vh);
     transition: transform 0.5s;
     font-size: 26px;
 }

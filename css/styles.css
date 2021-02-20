@@ -1,0 +1,220 @@
+body {
+    font-family: 'Montserrat';
+    background: radial-gradient(at top left, #636370, #161623);
+}
+
+.nav {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    display: flex;
+    position: fixed;
+    background: clear;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+svg {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    z-index: 4;
+}
+
+.main {
+    height: 1200px;
+    text-align: center;
+    justify-content: space-around;
+    margin: 60px 100px;
+}
+
+.ldw {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    -webkit-box-shadow: 22px 38px 15px 13px rgba(0, 0, 0, 0.50);
+    -moz-box-shadow: 22px 38px 15px 13px rgba(0, 0, 0, 0.50);
+    box-shadow: 22px 38px 15px 13px rgba(0, 0, 0, 0.50);
+    border-radius: 10px;
+    height: 100%;
+    width: 20%;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0004);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(rgba(255, 255, 255, 0.1), transparent, transparent);
+    overflow: hidden;
+    z-index: 1;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+
+
+.card .inset {
+    padding: 16px;
+    border-radius: 10px;
+    height: 50%;
+    width: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translateZ(20vh) translateX(-50%) translateY(13vh);
+    -webkit-box-shadow: inset 0px 0px 14px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 0px 14px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(rgba(255, 255, 255, 0.1), transparent, transparent);
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.card h1 {
+    transform: translateY(3vh);
+    transition: transform 0.5s;
+    font-size: 26px;
+}
+
+.card:hover h1 {
+    transform: translateY(0);
+}
+
+[left] {
+    float: left;
+}
+
+[right] {
+    float: right;
+}
+
+.card:hover .inset {
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.clear {
+    clear: both;
+}
+
+.wrapper {
+    width: 100%;
+    height: 22.5%;
+    background: transparent;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.swal-modal {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.swal-button {
+    transition: color, background-color 1s ease;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    border: none;
+    background: #000;
+    color: #fff;
+    border-radius: 2px;
+    padding: 8px 16px;
+    margin: 8px auto;
+    font-size: 14px;
+    font-family: inherit;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    float: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#bg {
+    opacity: 1;
+    background: #161623;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+    transition: opacity 0.5s ease;
+}
+
+#particles-js {
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(at top left, #636370, #161623);
+    background-image: url('');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -1;
+}
+
+#loaderText {
+    position: relative;
+    font-weight: 300;
+}
+
+.talhoidlink {
+    text-decoration: none;
+}
+
+.talhoidlink:active {
+    color: white;
+}

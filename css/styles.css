@@ -202,8 +202,8 @@ svg {
     background-image: url('');
     background-size: cover;
     background-position: 50% 50%;
-    background-repeat: repeat;
-    position: absolute;
+    background-repeat: no-repeat;
+    position: fixed;
     z-index: -1;
 }
 

@@ -196,14 +196,14 @@ svg {
 }
 
 #particles-js {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: radial-gradient(at top left, #636370, #161623);
     background-image: url('');
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    position: absolute;
+    position: fixed;
     z-index: -1;
 }
 

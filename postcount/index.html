@@ -1,61 +1,70 @@
 <!DOCTYPE html>
+
 <head>
-	<link rel="stylesheet" href="odometer-theme-default.css"/>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-	<script src="odometer.js"></script>
- 	<title id="title">Post count</title>
+    <link rel="stylesheet" href="odometer-theme-default.css" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script src="odometer.js"></script>
+    <title id="title">Post count</title>
 </head>
 <html>
-<body>
-<style>
-body {
-	font-size: 92px
-	font-weight: 900;
-	font-family: 'Montserrat';	
-}
-.postcount {
-	text-align: center;
-	margin: 0 auto;
-	height: 100%;
-	width: 100%;
-}
-.message, .count {
-	margin: 0 auto;
-	position: relative;
-}
-</style>
-<div class="postcount">
-<div class="message" style="border-bottom: 3px solid #ddd; margin-bottom:10px;display:inline-block;">
-<!--  style="border-bottom: 3px solid tomato; margin-bottom:10px;" -->
-<h1 class="pc" id="pc"></h1>
-</div>
-<div class="count">
-<h1 id="count" class="odometer" style="background: black;color: white;border-radius: 12px;padding: 1px 8px;display:inline-block;"></span>
-</div>
-<!--  style="background: black;color: white;border-radius: 12px;" -->
-</div>
-<script>
-urlParam = function(name){
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    return results[1] || 0;
-}
 
-user = urlParam('user')
-if (!user) {
-	location.href = 'https://talhoid-coder.github.io/postcount?user=Talhoid'
-}
-document.getElementById("pc").innerHTML = 'Hang on... fetching post count of ' + user;
-var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user
-function update() {
-	fetch(url).then(response => response.json()).then(data => {
-		var obj = JSON.parse(JSON.stringify(data));
-		document.getElementById("count").innerHTML = obj["counts"]["total"]["count"];
-		document.getElementById("title").innerHTML = 'Post count | ' + user + ' | ' + obj["counts"]["total"]["count"];
-		document.getElementById("pc").innerHTML = 'Post count of ' + user + ':';
-	});
-}
-update();
-setInterval(update,5000)
-</script>
+<body>
+    <style>
+        body {
+            font-size: 92px font-weight: 900;
+            font-family: 'Montserrat';
+        }
+        
+        .postcount {
+            text-align: center;
+            margin: 0 auto;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .message,
+        .count {
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+    <div class="postcount">
+        <div class="message" style="border-bottom: 3px solid #ddd; margin-bottom:10px;display:inline-block;">
+            <!--  style="border-bottom: 3px solid tomato; margin-bottom:10px;" -->
+            <h1 class="pc" id="pc"></h1>
+        </div>
+        <div class="count">
+            <h1 id="count" class="odometer" style="background: black;color: white;border-radius: 12px;padding: 1px 8px;display:inline-block;">
+                </span>
+        </div>
+        <!--  style="background: black;color: white;border-radius: 12px;" -->
+    </div>
+    <script>
+        urlParam = function(name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            return results[1] || 0;
+        };
+
+        user = urlParam('user');
+        userparam = user !== 0;
+        if (userparam) {
+            document.getElementById("pc").innerHTML = 'Hang on... fetching post count of ' + user;
+            var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user;
+            function update() {
+                fetch(url).then(response => response.json()).then(data => {
+                    var obj = JSON.parse(JSON.stringify(data));
+                    document.getElementById("count").innerHTML = obj["counts"]["total"]["count"];
+                    document.getElementById("title").innerHTML = 'Post count | ' + user + ' | ' + obj["counts"]["total"]["count"];
+                    document.getElementById("pc").innerHTML = 'Post count of ' + user + ':';
+                });
+            }
+            update();
+            setInterval(update, 5000);
+        }
+        else {
+            location.href = 'https://talhoid-coder.github.io/postcount?user=Talhoid'
+        }
+    </script>
 </body>
+
 </html>

@@ -47,6 +47,8 @@
 
         user = urlParam('user');
         userparam = user !== 0;
+        alert(user)
+        alert(userparam)
         if (userparam) {
             document.getElementById("pc").innerHTML = 'Hang on... fetching post count of ' + user;
             var url = 'https://scratchdb.lefty.one/v2/forum/user/info/' + user;
@@ -62,7 +64,7 @@
             setInterval(update, 5000);
         }
         else {
-            location.href = 'https://talhoid-coder.github.io/postcount?user=Talhoid'
+            window.location.href = 'https://talhoid-coder.github.io/postcount?user=Talhoid'
         }
     </script>
 </body>

@@ -1,4 +1,3 @@
-// jshint esnext: true
 class urlEncoder {
   constructor() {
     return;
@@ -45,4 +44,13 @@ buttons[1].addEventListener('click', function() {
 input.session.on('change', function(delta) {
   const encoder = new urlEncoder()
   output.getSession().setValue('javascript: ' + encoder.encode(input.getSession().getValue()).replace(/%0A/g, ''));
+});
+input.getSession().on("changeAnnotation", function () {
+  var annot = editor.getSession().getAnnotations();
+
+  for (var key in annot) {
+    if (annot.hasOwnProperty(key)) {
+      alert(annot[key].text + "on line " + " " + annot[key].row);
+    }
+  }
 });

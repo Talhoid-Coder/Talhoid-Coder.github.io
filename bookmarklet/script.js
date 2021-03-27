@@ -46,11 +46,13 @@ input.session.on('change', function(delta) {
   output.getSession().setValue('javascript: ' + encoder.encode(input.getSession().getValue()).replace(/%0A/g, ''));
 });
 input.getSession().on("changeAnnotation", function () {
-  var annot = input.getSession().getAnnotations();
-
-  for (var key in annot) {
-    if (annot.hasOwnProperty(key)) {
-      alert(annot[key].text + "on line " + " " + annot[key].row);
+  var annotations = input.getSession().getAnnotations(), errors = [];
+  for (var anno in annotations) {
+    if (anno.type != 'info') {
+      errors.push(anno);
     }
+  }
+  if (errors.length !== 0) {
+    output.getSession().setValue(errors.join('\n'))
   }
 });

@@ -46,7 +46,7 @@ input.session.on('change', function(delta) {
   output.getSession().setValue('javascript: ' + encoder.encode(input.getSession().getValue()).replace(/%0A/g, ''));
 });
 input.getSession().on("changeAnnotation", function () {
-  var annot = editor.getSession().getAnnotations();
+  var annot = input.getSession().getAnnotations();
 
   for (var key in annot) {
     if (annot.hasOwnProperty(key)) {

@@ -47,10 +47,10 @@ input.session.on('change', function(delta) {
 });
 input.getSession().on("changeAnnotation", function () {
   var annotations = input.getSession().getAnnotations(), errors = [];
-  /* for (var anno in annotations) {
+  for (var anno in annotations) {
     if (anno.type != 'info') {
-      errors.push(`${anno.row}${anno.column === undefined ? '' : ':' + anno.column} ${anno.text}`);
+      errors.push(JSON.stringify(anno))
     }
-  } */
-    alert(JSON.stringify(annotations))
+  }
+output.getSession().setValue(errors.join('\n'))
 });

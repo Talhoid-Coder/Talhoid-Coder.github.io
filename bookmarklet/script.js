@@ -43,14 +43,5 @@ buttons[1].addEventListener('click', function() {
 });
 input.session.on('change', function(delta) {
   const encoder = new urlEncoder()
-  output.getSession().setValue('javascript: ' + encoder.encode(input.getSession().getValue()).replace(/%0A/g, ''));
-});
-input.getSession().on("changeAnnotation", function () {
-  var annotations = input.getSession().getAnnotations(), errors = [];
-  for (var anno in annotations) {
-    if (anno.type != 'info') {
-      errors.push(JSON.stringify(anno))
-    }
-  }
-output.getSession().setValue(errors.join('\n'))
+  output.getSession().setValue('javascript: ' + encoder.encode(input.getSession().getValue()).replace(/%0A/g, '').replace(/%0D/g, ''));
 });

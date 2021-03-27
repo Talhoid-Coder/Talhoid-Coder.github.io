@@ -52,5 +52,5 @@ input.getSession().on("changeAnnotation", function () {
       errors.push(`${anno.row}${anno.column === undefined ? '' : ':' + anno.column} ${anno.text}`);
     }
   } */
-    output.getSession().setValue(JSON.stringify(annotations))
+    alert(JSON.stringify(annotations))
 });

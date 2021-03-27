@@ -49,7 +49,7 @@ input.getSession().on("changeAnnotation", function () {
   var annotations = input.getSession().getAnnotations(), errors = [];
   for (var anno in annotations) {
     if (anno.type != 'info') {
-      errors.push(anno);
+      errors.push(`${anno.row}:${anno.column === undefined ? 1 : anno.column} ${anno.text}`);
     }
   }
   if (errors.length !== 0) {

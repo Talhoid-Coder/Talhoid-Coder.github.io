@@ -1,3 +1,29 @@
+function minify(code) {
+	code = removeCodeComments(code);
+    function trim(text) {
+		var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g
+		return text == null ?
+			"" :
+			(text + "").replace(rtrim, "");
+	}
+	code = code.split(/\r\n|\r|\n/g);
+	var i = 0,
+		len = code.length,
+		noSemiColon = {},
+		t,
+		lastChar;
+
+	"} { ; ,".split(" ").forEach(function (x, i) {
+		noSemiColon[x] = 1;
+	});
+
+	for (; i < len; i++) {
+		t = trim(code[i]);
+		code[i] = t;
+	}
+	return code.join("").replace(/;$/, "");
+}
+
 function removeCodeComments(code) {
     var inQuoteChar = null;
     var inBlockComment = false;
@@ -39,24 +65,6 @@ function removeCodeComments(code) {
     }
     return newCode;
 }
-
-class urlEncoder {
-  constructor() {
-    return;
-  }
-  encode(str) {
-    var r = [];
-    for (var n = 0, l = str.length; n < l; n++) {
-      if (!(/[a-zA-Z0-9\._]/g.test(str.charAt(n)))) {
-        var hex = Number(str.charCodeAt(n)).toString(16);
-        r.push((hex.length == 1 ? '%0' : '%') + hex.toUpperCase());
-      } else {
-        r.push(str.charAt(n))
-      }
-    }
-    return r.join('');
-  }
-}
 var active = 0,
   input = ace.edit("inputEditor", {
     theme: "ace/theme/monokai",
@@ -84,6 +92,6 @@ buttons[1].addEventListener('click', function() {
   editors[0].classList.add('hidden')
 });
 input.session.on('change', function(delta) {
-  const encoder = new urlEncoder()
-  output.getSession().setValue('javascript: ' + encoder.encode(removeCodeComments(input.getSession().getValue())).replace(/%0A/g, '').replace(/%0D/g, ''));
+    var code = 'javascript: ' + encodeURIComponent(minify(input.getSession().getValue()));
+    output.getSession().setValue(code);
 });

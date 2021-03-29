@@ -1,3 +1,45 @@
+function removeCodeComments(code) {
+    var inQuoteChar = null;
+    var inBlockComment = false;
+    var inLineComment = false;
+    var inRegexLiteral = false;
+    var newCode = '';
+    for (var i=0; i<code.length; i++) {
+        if (!inQuoteChar && !inBlockComment && !inLineComment && !inRegexLiteral) {
+            if (code[i] === '"' || code[i] === "'" || code[i] === '`') {
+                inQuoteChar = code[i];
+            }
+            else if (code[i] === '/' && code[i+1] === '*') {
+                inBlockComment = true;
+            }
+            else if (code[i] === '/' && code[i+1] === '/') {
+                inLineComment = true;
+            }
+            else if (code[i] === '/' && code[i+1] !== '/') {
+                inRegexLiteral = true;
+            }
+        }
+        else {
+            if (inQuoteChar && ((code[i] === inQuoteChar && code[i-1] != '\\') || (code[i] === '\n' && inQuoteChar !== '`'))) {
+                inQuoteChar = null;
+            }
+            if (inRegexLiteral && ((code[i] === '/' && code[i-1] !== '\\') || code[i] === '\n')) {
+                inRegexLiteral = false;
+            }
+            if (inBlockComment && code[i-1] === '/' && code[i-2] === '*') {
+                inBlockComment = false;
+            }
+            if (inLineComment && code[i] === '\n') {
+                inLineComment = false;
+            }
+        }
+        if (!inBlockComment && !inLineComment) {
+            newCode += code[i];
+        }
+    }
+    return newCode;
+}
+
 class urlEncoder {
   constructor() {
     return;
@@ -43,5 +85,5 @@ buttons[1].addEventListener('click', function() {
 });
 input.session.on('change', function(delta) {
   const encoder = new urlEncoder()
-  output.getSession().setValue('javascript: ' + encoder.encode(input.getSession().getValue()).replace(/%0A/g, '').replace(/%0D/g, ''));
+  output.getSession().setValue('javascript: ' + encoder.encode(removeCodeComments(input.getSession().getValue())).replace(/%0A/g, '').replace(/%0D/g, ''));
 });

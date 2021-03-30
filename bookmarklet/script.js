@@ -92,6 +92,6 @@ buttons[1].addEventListener('click', function() {
   editors[0].classList.add('hidden')
 });
 input.session.on('change', function(delta) {
-    var code = 'javascript: ' + encodeURIComponent(minify(input.getSession().getValue()));
+    var code = 'javascript: ' + encodeURIComponent("(function(){" + minify(input.getSession().getValue()) + "})()");
     output.getSession().setValue(code);
 });
